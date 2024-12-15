@@ -1,0 +1,99 @@
+DATASET: 'Wisar3dDataset'
+DATA_PATH: '../data/wisar3d'
+
+PROCESSED_DATA_TAG: 'wisar3d_processed_data_v1'
+
+name_to_class:
+    'Vehicle': 0
+    'Mattress': 1
+    'Ball': 2
+    'Gazebo': 3
+    'Canopy': 4
+    'Chair': 5
+    'Small_table': 6
+    'Big_table': 7
+    'Tripod_pipe': 8
+    'Barrel': 9
+    'Tent': 10
+    'Box': 11
+    'Drone_case': 12
+    'Small_bin': 13
+    'Ramp': 14
+    'Sitting_person': 15
+    'Standing_person': 16
+    'Cone': 17
+    'Flag': 18
+    'Pipe': 19
+    'Porta_potty': 20
+    'Play_tunnel': 21
+
+POINT_CLOUD_RANGE: [-40, -75, -2, 110, 75, 4]
+
+DATA_SPLIT: {
+    'train': train,
+    'test': val,
+}
+
+INFO_PATH: {
+    'train': [wisar3d_infos_train.pkl],
+    'test': [wisar3d_infos_val.pkl],
+}
+
+POINT_FEATURE_ENCODING: {
+    encoding_type: absolute_coordinates_encoding,
+    used_feature_list: ['x', 'y', 'z', 'intensity'],
+    src_feature_list: ['x', 'y', 'z', 'intensity', 'return_num'],
+}
+
+DATA_AUGMENTOR:
+    DISABLE_AUG_LIST: ['placeholder']
+    AUG_CONFIG_LIST:
+        - NAME: gt_sampling
+          USE_ROAD_PLANE: False
+          DB_INFO_PATH:
+              - wisar3d_dbinfos_train.pkl
+          PREPARE: {
+            filter_by_min_points: [
+                'Vehicle:5', 'Mattress:5', 'Ball:5', 'Gazebo:5', 'Canopy:5', 'Chair:5',
+                'Small_table:5', 'Big_table:5', 'Tripod_pipe:5', 'Barrel:5', 'Tent:5', 'Box:5', 'Drone_case:5',
+                'Small_bin:5', 'Ramp:5', 'Sitting_person:5', 'Standing_person:5', 'Cone:5', 'Flag:5', 'Pipe:5',
+                'Porta_potty:5', 'Play_tunnel:5'
+            ],
+          }
+          SAMPLE_GROUPS: [
+              'Vehicle:1', 'Mattress:2', 'Ball:3', 'Gazebo:1', 'Canopy:1', 'Chair:1',
+              'Small_table:1', 'Big_table:1', 'Tripod_pipe:3', 'Barrel:2', 'Tent:1', 'Box:3', 'Drone_case:2',
+              'Small_bin:3', 'Ramp:2', 'Sitting_person:3', 'Standing_person:2', 'Cone:2',
+              'Flag:2', 'Pipe:4', 'Porta_potty:2', 'Play_tunnel:2'
+          ]
+          NUM_POINT_FEATURES: 5
+          DATABASE_WITH_FAKELIDAR: False
+          REMOVE_EXTRA_WIDTH: [0.0, 0.0, 0.0]
+          LIMIT_WHOLE_SCENE: True
+
+        - NAME: random_world_flip
+          ALONG_AXIS_LIST: ['x']
+
+        - NAME: random_world_rotation
+          WORLD_ROT_ANGLE: [-0.78539816, 0.78539816]
+
+        - NAME: random_world_scaling
+          WORLD_SCALE_RANGE: [0.95, 1.05]
+
+DATA_PROCESSOR:
+    - NAME: mask_points_and_boxes_outside_range
+      REMOVE_OUTSIDE_BOXES: True
+
+    - NAME: shuffle_points
+      SHUFFLE_ENABLED: {
+        'train': True,
+        'test': False
+      }
+
+    - NAME: transform_points_to_voxels
+      VOXEL_SIZE: [0.1, 0.1, 0.15]
+      MAX_POINTS_PER_VOXEL: 5
+      MAX_NUMBER_OF_VOXELS: {
+        'train': 900000,
+        'test': 900000,
+      }
