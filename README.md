@@ -46,7 +46,7 @@ python setup.py develop
 
 
 ## Data preparation 
-Download the [WiSAR3D]() dataset and organize the downloaded files as follows:
+Download the [WiSAR3D](https://cgmdata.ece.technion.ac.il/public/data/WiSAR3D/) dataset and organize the downloaded files as follows:
 ```
 WiSAR3D
 ├── data
