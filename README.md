@@ -46,20 +46,28 @@ python setup.py develop
 
 
 ## Data preparation 
-Download the [WiSAR3D](https://cgmdata.ece.technion.ac.il/public/data/WiSAR3D/) dataset and organize the downloaded files as follows:
+Download the [WiSAR3D](https://cgmdata.ece.technion.ac.il/public/data/WiSAR3D/) dataset, extract and organize the files as follows:
 ```
 WiSAR3D
 ├── data
 │   ├── wisar3d
 │   │   │── ImageSets
 │   │   │── training
-│   │   │   ├── points & label
+│   │   │   ├── points
+│   │   │   │   ├── 000000.npy
+│   │   │   │   ├── 000001.npy
+│   │   │   │   ├── ...
+│   │   │   ├── label
+│   │   │   │   ├── 000000.txt
+│   │   │   │   ├── 000001.txt
+│   │   │   │   ├── ...
 │   │   │── gt_database
 │   │   │── wisar3d_dbinfos_train.pkl
 │   │   │── wisar3d_infos_train.pkl
 │   │   │── wisar3d_infos_val.pkl
 ├── pcdet
 ├── tools
+├── ...
 ```
 To generate the data infos and gt database, run the following command:
 ```
