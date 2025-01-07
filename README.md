@@ -2,7 +2,7 @@
 
 This is the official code for the [WiSAR3D - Aerial LiDAR dataset for 3D object detection]() paper.
 
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: space-between; width: 100%; box-sizing: border-box;">
   <figure style="text-align: center; width: 48%;">
     <img src="docs/teaser_zoom_out.png" alt="Zoom Out" style="width: 100%;"/>
     <figcaption>(a) A typical scene</figcaption>
