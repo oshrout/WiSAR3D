@@ -19,7 +19,7 @@ This is the official code for the [WiSAR3D - Aerial LiDAR dataset for 3D object 
 We incorporated state-of-the-art detectors from autonomous driving datasets. 
 The table presents the outcomes of our five metrics, as well as the training duration in hours measured on `8× A100 GPUs`, the FPS (frames per second) at inference measured on a single A100 GPU with a batch size of 1, and the memory usage per GPU during training and inference.
 
-| Method                                                                              | mAP     | NDS     | ATE      | ASE      | AOE      | Training Time [h]↓   | FPS↑    | Training Memory [GB]↓ | Inference Memory [GB]↓ |
+| Method                                                                              | mAP↑    | NDS↑    | ATE↓     | ASE↓     | AOE↓     | Training Time [h]↓   | FPS↑    | Training Memory [GB]↓ | Inference Memory [GB]↓ |
 |-------------------------------------------------------------------------------------|---------|---------|----------|----------|----------|----------------------|---------|------------------------|------------------------|
 | [PointPillars](tools/cfgs/wisar3d_models/pointpillar.yaml)                          | 0.3592  | 0.5079  | 0.1547   | 0.1982   | 0.6774   | 1.92                 | 9.43    | 38.39                  | 8.64                   |
 | [PointRCNN](tools/cfgs/wisar3d_models/pointrcnn.yaml)                               | 0.4163  | 0.5276  | 0.2903   | 0.3355   | 0.4577   | 11.63                | 0.23    | 35.18                  | **4.04**               |
