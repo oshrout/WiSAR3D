@@ -1,6 +1,6 @@
 # WiSAR3D
 
-This is the official code for the [WiSAR3D - Aerial LiDAR dataset for 3D object detection]() paper.
+This is the official code for the [WiSAR3D (WACV 2026)]() paper.
 
 <div style="display: flex; justify-content: space-between; width: 100%; box-sizing: border-box;">
   <figure style="text-align: center; width: 48%;">
