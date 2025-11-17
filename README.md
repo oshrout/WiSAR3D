@@ -2,16 +2,18 @@
 
 This is the official code for the [WiSAR3D (WACV 2026)]() paper.
 
-<div style="display: flex; justify-content: space-between; width: 100%; box-sizing: border-box;">
-  <figure style="text-align: center; width: 48%;">
-    <img src="docs/teaser_zoom_out.png" alt="Zoom Out" style="width: 100%;"/>
-    <figcaption>(a) A typical scene</figcaption>
-  </figure>
-  <figure style="text-align: center; width: 48%;">
-    <img src="docs/teaser_zoom_in.png" alt="Zoom In" style="width: 100%;"/>
-    <figcaption>(b) Zoom in on the red rectangle</figcaption>
-  </figure>
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="docs/teaser_zoom_out.png" width="100%">
+      <br>(a) A typical scene
+    </td>
+    <td style="text-align: center;">
+      <img src="docs/teaser_zoom_in.png" width="100%">
+      <br>(b) Zoom in on the red rectangle
+    </td>
+  </tr>
+</table>
 
 
 ## Detection results
