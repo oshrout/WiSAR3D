@@ -1,5 +1,17 @@
 # WiSAR3D
 
+<p align="center">
+  <a href="https://wisar3d.github.io/" style="margin-right: 8px;">
+    <img src="https://img.shields.io/badge/Project%20Page-WiSAR3D-0055FF?style=for-the-badge&logo=github&logoColor=white" alt="Project Page"/>
+  </a>
+  <a href="https://arxiv.org/abs/xxxx.xxxxx" style="margin-right: 8px;">
+    <img src="https://img.shields.io/badge/Paper-arXiv-FF6600?style=for-the-badge&logo=arxiv&logoColor=white" alt="Paper"/>
+  </a>
+  <a href="https://cgmdata.ece.technion.ac.il/public/data/WiSAR3D/">
+    <img src="https://img.shields.io/badge/Dataset-WiSAR3D-00AA55?style=for-the-badge&logo=dataset&logoColor=white" alt="Dataset"/>
+  </a>
+</p>
+
 This is the official code for the [WiSAR3D (WACV 2026)]() paper.
 
 <table>
